@@ -1,0 +1,111 @@
+$navbar-default-bg: black;
+
+/* mixins, variables, etc. */
+
+$gray-medium-light: #eaeaea;
+
+/* universal */
+
+body {
+  padding-top: 60px;
+}
+
+section {
+  overflow: auto;
+}
+
+textarea {
+  resize: vertical;
+}
+
+.center {
+  text-align: center;
+  h1 {
+    margin-bottom: 10px;
+  }
+}
+
+/* typography */
+
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1;
+}
+
+h1 {
+  font-size: 3em;
+  letter-spacing: -2px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+h2 {
+  font-size: 1.2em;
+  letter-spacing: -1px;
+  margin-bottom: 30px;
+  text-align: center;
+  font-weight: normal;
+  color: black;
+}
+
+p {
+  font-size: 1.1em;
+  line-height: 1.7em;
+}
+
+/* header */
+
+#logo {
+  float: left;
+  margin-right: 10px;
+  font-size: 1.5em;
+  color: #8B7B8B;
+  letter-spacing: -1px;
+  padding-top: 9px;
+}
+#logo:hover {
+  color: #D8BFD8;
+  text-decoration: none;
+}
+
+/* footer */
+footer {
+  margin-top: 45px;
+  padding-top: 5px;
+  border-top: 1px solid $gray-medium-light;
+  color: #363636;
+  text-align: center
+
+}
+
+@mixin box_sizing {
+  -moz-box-sizing:    border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing:         border-box;
+}
+
+/**/
+.book-home {
+  position: relative;
+  background-image: image_url("reading.jpg");
+  background-size: 100% auto;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 33vw;
+  .theme_header{
+    padding-top: 30px;
+    margin-left: 75px;
+    h1 {
+      color: white;
+      text-align: left;
+      font-size: 28px;
+      font-family: "Purisa", sans-serif;
+      text-shadow: 1px 2px #DDC488;
+    }
+    p {
+      color: white;
+      text-align: left;
+      font-size: 15px;
+      font-family: "Tamaho", sans-serif;
+    }
+  }
+}
