@@ -20,4 +20,20 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  users: "Users"
+  account: "Account "
+  profile: "Profile"
+  settings: "Settings"
+  logout: "Log out"
+  remember_me: "Remember me on this computer"
+  theme_header: "Enjoy the Words of the BOOK as enjoy the Taste of the MEAL"
+  theme_footer: "The world of books"
+  contact: "Fax: 0987654321"
+  reckless_think: "RecklessThink"
+  users: "Users"
+  account: "Account "
+  profile: "Profile"
+  settings: "Settings"
+  logout: "Log out"
+  sign_up: "Sign up"
+  login: "Login"
