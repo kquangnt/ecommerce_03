@@ -1,0 +1,28 @@
+<header class="navbar navbar-fixed-top navbar-inverse">
+  <div class="container">
+    <%= link_to t("reckless_think"), root_path, id: "logo" %>
+    <nav>
+      <ul class="nav navbar-nav navbar-right">
+        <% if admin_signed_in? %>
+          <li class="hi"><%= t "hi" %><%= current_admin.name %></li>
+          <li class="dropdown">
+            <%= link_to "#", {class: "dropdown-toggle", "data-toggle": "dropdown"} do %>
+              <%= t "account" %><b class="caret"></b>
+            <% end %>
+            <ul class="dropdown-menu">
+              <li><%= link_to t("manage"), admin_root_path %></li>
+              <li><%= link_to t("view_profile"), "#" %></li>
+              <li><%= link_to t("edit_profile"), "#" %></li>
+              <li class="divider"></li>
+              <li><%= link_to t("logout"), destroy_admin_session_path, method: :delete %></li>
+            </ul>
+          </li>
+        <% else %>
+          <li><%= link_to t("sign_up"), "#" %></li>
+          <li><%= link_to t("login"), new_admin_session_path %></li>
+        <% end %>
+        <li><%= link_to t("cart"), "#" %></li>
+      </ul>
+    </nav>
+  </div>
+</header>

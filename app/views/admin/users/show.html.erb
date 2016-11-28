@@ -1,0 +1,37 @@
+<%= render "admin/layouts/header"%>
+
+<% provide :title, @user.name %>
+<h1><%= t "personal_information" %></h1>
+
+<div class="info_users">
+  <table>
+    <tr class="element">
+      <td><%= t "user_name" %></td>
+      <td class="value"><%= @user.name %></td>
+    </tr>
+    <tr class="element">
+      <td><%= t "telephone" %></td>
+      <td class="value"><%= @user.telephone %></td>
+    </tr>
+    <tr class="element">
+      <td><%= t "email" %></td>
+      <td class="value"><%= @user.email %></td>
+    </tr>
+    <tr class="element">
+      <td><%= t "role" %></td>
+      <td class="value">
+        <% if @user.is_admin %>
+          <%= t "admin" %>
+        <% else %>
+          <%= t "user" %>
+        <% end %>
+      </td>
+    </tr>
+    <tr class="element">
+      <td><%= t("created_at") %></td>
+      <td class="value"><%= @user.created_at %></td>
+    </tr>
+  </table>
+
+  <p><%= link_to t("back"), admin_users_path %></p>
+</div>

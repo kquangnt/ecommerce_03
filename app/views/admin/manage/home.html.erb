@@ -1,0 +1,12 @@
+<%= render "admin/layouts/header"%>
+
+<center class="manage">
+  <h2><%= t "start_manage" %></h2>
+  <div class="choose">
+    <%= link_to t("categories"), "#", id: "element" %>
+    <%= link_to t("books"), "#", id: "element" %>
+    <%= link_to t("reviews"), "#", id: "element" %>
+    <%= link_to t("orders"), "#", id: "element" %>
+    <%= link_to t("users"), admin_users_path, id: "element" %>
+  </div>
+</center>
