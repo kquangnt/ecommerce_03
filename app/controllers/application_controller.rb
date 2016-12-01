@@ -7,13 +7,10 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:sign_up) do |user_params|
       user_params.permit :name, :telephone, :email, :password, :password_confirmation
     end
-  end
 
-  def load_user
-    @user = User.find_by_id params[:id]
-    unless @user
-      flash[:danger] = t "user_not_exist"
-      redirect_to users_path
+    devise_parameter_sanitizer.permit(:account_update) do |user_params|
+      user_params.permit :name, :telephone, :email, :password,
+        :password_confirmation, :current_password
     end
   end
 end

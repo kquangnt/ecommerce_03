@@ -1,4 +1,9 @@
 <li>
   <%= user.id %>
   <%= link_to user.name, user, class: "unit_user" %>
+
+  <% if can? :destroy, user %>
+    | <%= link_to t("delete"), user, method: :delete,
+      data: {confirm: t("are_you_sure")} %>
+  <% end %>
 </li>
