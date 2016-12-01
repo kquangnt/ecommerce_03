@@ -5,17 +5,33 @@
       <ul class="nav navbar-nav navbar-right">
         <% if user_signed_in? %>
           <li class="hi"><%= t "hi" %><%= current_user.name %></li>
-          <li><%= link_to t("books"), "#" %></li>
-          <li><%= link_to t("orders"), "#" %></li>
           <li><%= link_to t("users"), users_path %></li>
+          <li><%= link_to t("books"), "#" %></li>
+          <li class="dropdown">
+            <%= link_to "#", {class: "dropdown-toggle", "data-toggle": "dropdown"} do %>
+              <%= t "categories" %><b class="caret"></b>
+            <% end %>
+            <ul class="dropdown-menu">
+              <li><%= link_to t("list_categories"), categories_path %></li>
+              <li class="divider"></li>
+              <ul class="list_cate">
+                <% @categories_header.each do |category| %>
+                  <li><%= link_to category.name, "#" %></li>
+                <% end %>
+              </ul>
+            </ul>
+          </li>
           <li class="dropdown">
             <%= link_to "#", {class: "dropdown-toggle", "data-toggle": "dropdown"} do %>
               <%= t "account" %><b class="caret"></b>
             <% end %>
             <ul class="dropdown-menu">
               <% if current_user.is_admin? %>
-                <li><%= link_to t("manage"), "#" %></li>
+                <li><%= link_to t("manage"), admin_root_path %></li>
+              <% else %>
+                <li><%= link_to t("orders"), "#" %></li>
               <% end %>
+              <li class="divider"></li>
               <li><%= link_to t("view_profile"), current_user %></li>
               <li><%= link_to t("edit_profile"), edit_user_registration_path %></li>
               <li class="divider"></li>

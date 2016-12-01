@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :list_categories
   before_action :authenticate_user!
   load_and_authorize_resource
 
