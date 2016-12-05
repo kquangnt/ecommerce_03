@@ -1,0 +1,14 @@
+<% provide :title, t("all_categories") %>
+<h1><%= t "all_categories" %></h1>
+<%= render "shared/flash" %>
+
+<div class="list_categories">
+  <%= link_to t("add_category"), new_admin_category_path, class: "add-cate" %>
+  <%= paginate @categories, theme: "twitter-bootstrap-3" %>
+
+  <table>
+    <%= render @categories %>
+  </table>
+
+  <p><%= link_to t("back"), admin_root_path %></p>
+</div>
