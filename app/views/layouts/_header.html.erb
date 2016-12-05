@@ -6,7 +6,7 @@
         <% if user_signed_in? %>
           <li class="hi"><%= t "hi" %><%= current_user.name %></li>
           <li><%= link_to t("users"), users_path %></li>
-          <li><%= link_to t("books"), "#" %></li>
+          <li><%= link_to t("books"), books_path %></li>
           <li class="dropdown">
             <%= link_to "#", {class: "dropdown-toggle", "data-toggle": "dropdown"} do %>
               <%= t "categories" %><b class="caret"></b>
@@ -16,7 +16,7 @@
               <li class="divider"></li>
               <ul class="list_cate">
                 <% @categories_header.each do |category| %>
-                  <li><%= link_to category.name, "#" %></li>
+                  <li><%= link_to category.name, books_path(category: category.id) %></li>
                 <% end %>
               </ul>
             </ul>

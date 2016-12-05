@@ -1,0 +1,24 @@
+<%= form_for [:admin, @book], html: {multipart: true} do |f| %>
+  <%= render "shared/error_messages", object: f.object %>
+
+  <%= f.label :category_id %>
+  <%= select_tag :category_id, options_for_select(categories),
+    prompt: t("select_a_category"), class: "form-control" %>
+
+  <%= f.label :title %>
+  <%= f.text_field :title, class: "form-control" %>
+
+  <%= f.label :author %>
+  <%= f.text_field :author, class: "form-control" %>
+
+  <%= f.label :description %>
+  <%= f.text_area :description, class: "form-control" %>
+
+  <%= f.label :unit_price %>
+  <%= f.text_field :unit_price, class: "form-control" %>
+
+  <%= f.label :book_img %>
+  <%= f.file_field :book_img, class: "form-control" %>
+
+  <%= f.submit yield(:button_text), class: "btn btn-primary" %>
+<% end %>

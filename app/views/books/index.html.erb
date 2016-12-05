@@ -1,0 +1,15 @@
+<% provide :title, t("all_books") %>
+<h1><%= t "all_books" %></h1>
+<%= render "shared/flash" %>
+
+<div class="list-books">
+  <% if @books.blank? %>
+    <p><%= t "no_book_currently" %></p>
+  <% else %>
+    <%= paginate @books, theme: "twitter-bootstrap-3" %>
+
+    <ul>
+      <%= render @books %>
+    </ul>
+  <% end %>
+</div>
