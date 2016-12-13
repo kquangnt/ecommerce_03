@@ -1,0 +1,34 @@
+<% provide :title, t("all_books") %>
+<h1><%= t "details_books" %></h1>
+<%= render "shared/flash" %>
+
+<div class="info-users">
+  <div><%= image_tag @book.book_img.url(:book_index) %></div>
+
+  <div>
+    <table>
+      <tr class="element">
+        <td><%= t "title" %></td>
+        <td class="value"><%= @book.title %></td>
+      </tr>
+      <tr class="element">
+        <td><%= t "author" %></td>
+        <td class="value"><%= @book.author %></td>
+      </tr>
+      <tr class="element">
+        <td><%= t "description" %></td>
+        <td><%= @book.description %></td>
+      </tr>
+      <tr class="element">
+        <td><%= t "cover_price" %></td>
+        <td class="value"><%= @book.unit_price %><%= t "vnd" %></td>
+      </tr>
+      <tr class="element">
+        <td><%= t "category_id" %></td>
+        <td class="value"><%= @category.name %></td>
+      </tr>
+    </table>
+  </div>
+
+  <p><%= link_to t("back"), admin_books_path %></p>
+</div>

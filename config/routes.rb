@@ -8,5 +8,7 @@ Rails.application.routes.draw do
   devise_for :users
   resources :users, only: [:index, :show, :destroy]
   resources :categories, only: :index
-  resources :books, only: [:index, :show]
+  resources :books, only: [:index, :show] do
+    resources :reviews
+  end
 end
