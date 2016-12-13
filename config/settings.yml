@@ -1,5 +1,7 @@
 per_page:
   user: 3
+  category: 2
+  book: 3
 book_index: "250x350>"
 book_show: "325x475>"
 maximum_name: 255

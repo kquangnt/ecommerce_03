@@ -1,0 +1,37 @@
+<% provide :title, t("all_books") %>
+<h1><%= t "details_books" %></h1>
+
+<div class="info-book">
+  <div class="row">
+    <div class="col-sm-3">
+      <%= image_tag @book.book_img.url(:book_index) %>
+    </div>
+    <div class="col-md-6">
+      <span class="tit"><%= @book.title %></span>
+      <br/>
+      <span class="author"><%= t "author" %><span class="na-aut">
+        <%= @book.author %></span></span>
+      <br/>
+      <span class="price"><%= t "cover_price" %><span class="num-price">
+        <%= @book.unit_price %><%= t "vnd" %></span></span>
+    </div>
+    <div class="col-md-3">
+      <!-- average rating-->
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="introduce">
+      <h4><%= t "introduce_the_book" %></h4>
+      <p><%= @book.description %></p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="revie">
+      <!-- post review -->
+    </div>
+  </div>
+
+  <span class="baka"><%= link_to t("back"), books_path %></span>
+</div>
