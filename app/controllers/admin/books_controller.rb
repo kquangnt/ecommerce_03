@@ -18,6 +18,14 @@ class Admin::BooksController < ApplicationController
     end
   end
 
+  def show
+    @category = Category.find_by_id @book.category_id
+    unless @category
+      flash[:danger] = t "category_not_exist"
+      redirect_to books_path
+    end
+  end
+
   def new
     @book = Book.new
   end
@@ -28,6 +36,18 @@ class Admin::BooksController < ApplicationController
       redirect_to admin_books_path
     else
       render :new
+    end
+  end
+
+  def edit
+  end
+
+  def update
+    if @book.update edit_book_params
+      flash[:success] = t "book_updated_success"
+      redirect_to admin_book_path @book
+    else
+      render :edit
     end
   end
 
@@ -44,5 +64,10 @@ class Admin::BooksController < ApplicationController
   def book_params
     params.require(:book).permit(:title, :author, :description, :unit_price,
       :category_id, :book_img).merge category_id: params[:category_id]
+  end
+
+  def edit_book_params
+    params.require(:book).permit :title, :author, :description, :unit_price,
+      :category_id, :book_img
   end
 end

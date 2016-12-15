@@ -19,5 +19,7 @@ class BooksController < ApplicationController
   end
 
   def show
+    @reviews = @book.reviews.order_date_desc.page(params[:pages])
+      .per Settings.per_page.review
   end
 end

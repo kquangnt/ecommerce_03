@@ -1,0 +1,12 @@
+<%= form_for ([@book, @book.reviews.build]) do |f| %>
+  <%= render "shared/error_messages", object: f.object %>
+
+  <div id="rating-form">
+    <label><%= t "rating" %></label>
+  </div>
+
+  <%= f.label :comment %>
+  <%= f.text_area :comment, class: "form-control" %>
+
+  <%= f.submit yield(:button_text), class: "btn btn-primary" %>
+<% end %>

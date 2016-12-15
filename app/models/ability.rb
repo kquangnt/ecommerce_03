@@ -9,6 +9,10 @@ class Ability
       can :destroy, User do |current_user|
         current_user == user
       end
+      can :destroy, Review do |review|
+        review.user == user
+      end
+      can :create, Review
       can :read, :all
     end
   end
