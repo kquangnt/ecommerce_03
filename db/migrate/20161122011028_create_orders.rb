@@ -3,7 +3,7 @@ class CreateOrders < ActiveRecord::Migration[5.0]
     create_table :orders do |t|
       t.integer :user_id
       t.integer :cost
-      t.boolean :is_accept
+      t.boolean :is_accept, default: true
 
       t.timestamps
     end

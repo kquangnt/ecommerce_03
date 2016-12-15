@@ -18,4 +18,13 @@ class ApplicationController < ActionController::Base
   def list_categories
     @categories_header = Category.all
   end
+
+  def current_cart
+    Cart.find session[:cart_id]
+    rescue ActiveRecord::RecordNotFound
+    cart = Cart.current_cart
+    session[:cart_id] = cart.id
+    cart
+  end
+  helper_method :current_cart
 end
