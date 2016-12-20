@@ -1,4 +1,4 @@
-<%= form_for ([@book, @book.reviews.build]) do |f| %>
+<%= form_for [@book, @book.reviews.build], remote: true do |f| %>
   <%= render "shared/error_messages", object: f.object %>
 
   <div id="rating-form">
@@ -10,3 +10,5 @@
 
   <%= f.submit yield(:button_text), class: "btn btn-primary" %>
 <% end %>
+
+<%= javascript_include_tag "reviews" %>

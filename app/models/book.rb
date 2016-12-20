@@ -1,7 +1,9 @@
 class Book < ApplicationRecord
-  belongs_to :order_detail
   belongs_to :category
-  has_many :reviews
+  has_many :order_details
+  before_destroy :check_if_has_order_detail
+  has_many :orders, through: :order_details
+  has_many :reviews, dependent: :destroy
 
   has_attached_file :book_img, styles: {book_index: Settings.book_index,
     book_show: Settings.book_show, default_url: "/images/:style/missing.png"}
@@ -16,5 +18,10 @@ class Book < ApplicationRecord
   scope :order_date_desc, ->{order created_at: :desc}
   scope :filter_category, ->category_id do
     where category_id: category_id
+  end
+
+  private
+  def check_if_has_order_detail
+    errors.add(:base, t("this_book_has_a_rder_etail")) unless order_details.empty?
   end
 end

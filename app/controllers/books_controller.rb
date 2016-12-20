@@ -21,5 +21,10 @@ class BooksController < ApplicationController
   def show
     @reviews = @book.reviews.order_date_desc.page(params[:pages])
       .per Settings.per_page.review
+    if @reviews.blank?
+      @average_review = Settings.zero
+    else
+      @average_review = @book.reviews.average(:rating).round Settings.average_round
+    end
   end
 end

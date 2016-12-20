@@ -5,3 +5,5 @@ per_page:
 book_index: "250x350>"
 book_show: "325x475>"
 maximum_name: 255
+average_round: 2
+zero: 0

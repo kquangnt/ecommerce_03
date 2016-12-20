@@ -16,7 +16,11 @@
         <%= @book.unit_price %><%= t "vnd" %></span></span>
     </div>
     <div class="col-md-3">
-      <!-- average rating-->
+      <span class="average"><%= t "average_rating" %></span>
+      <br/>
+      <span class="average-review-rating" data-score=<%= @average_review%>></span>
+      <br/><br/>
+      <span><%= t "base_on" %><%= @book.reviews.size %><%= t "num_reviews" %></span>
     </div>
   </div>
 
@@ -48,3 +52,5 @@
 
   <span class="baka"><%= link_to t("back"), books_path %></span>
 </div>
+
+<%= javascript_include_tag "reviews" %>
