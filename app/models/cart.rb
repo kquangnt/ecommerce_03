@@ -4,12 +4,13 @@ class Cart < ApplicationRecord
 
   scope :order_date_desc, ->{order created_at: :desc}
 
-  def add_book book_id
+  def add_book number_input, book_id
     current_item = order_details.find_by_book_id book_id
     if current_item
-      current_item.increment :number
+      current_item.increment :number, number_input
     else
       current_item = order_details.build book_id: book_id
+      current_item.increment :number, number_input - 1
     end
   end
 

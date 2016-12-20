@@ -13,4 +13,6 @@ Rails.application.routes.draw do
   end
 
   resources :carts
+  resources :orders, except: [:edit, :update]
+  resources :order_details, only: [:new, :create, :destroy]
 end

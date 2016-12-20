@@ -21,7 +21,7 @@
       </tr>
       <tr class="element">
         <td><%= t "cover_price" %></td>
-        <td class="value"><%= @book.unit_price %><%= t "vnd" %></td>
+        <td class="value"><%= display_total_price @book.unit_price %></td>
       </tr>
       <tr class="element">
         <td><%= t "category_id" %></td>

@@ -19,6 +19,7 @@ class BooksController < ApplicationController
   end
 
   def show
+    @order_detail = OrderDetail.new
     @reviews = @book.reviews.order_date_desc.page(params[:pages])
       .per Settings.per_page.review
     if @reviews.blank?

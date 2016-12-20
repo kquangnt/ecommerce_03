@@ -12,6 +12,11 @@ class Ability
       can :destroy, Review do |review|
         review.user == user
       end
+      can :create, Order
+      can :destroy, Order do |order|
+        order.user == user
+      end
+      can :destroy, Cart
       can :create, Review
       can :read, :all
     end

@@ -1,0 +1,40 @@
+<% provide :title, t("your_details_cart") %>
+<h1><%= t "your_details_cart" %></h1>
+<%= render "shared/flash" %>
+
+<div>
+  <% if @cart.order_details.blank? %>
+    <center class="no-item"><%= t "no_items_in_your_cart" %></center>
+  <% else %>
+    <div class="your-cart">
+      <div class="row">
+        <div class="col-sm-8">
+          <table>
+            <tr>
+              <th></th>
+              <th></th>
+              <th><%= t "unit_price" %></th>
+              <th><%= t "number" %></th>
+              <th><%= t "total_price" %></th>
+            </tr>
+            <% @cart.order_details.each do |cart| %>
+              <%= render partial: "list_order_detail", locals: {cart: cart} %>
+            <% end %>
+          </table>
+        </div>
+        <div class="col-sm-4">
+          <div class="total">
+            <center>
+              <span class="cost"><%= t "cost" %></span>
+              <span class="costnum"><%= display_total_price @cart.total_price %></span>
+              <br/><br/>
+              <%= link_to t("order"), new_order_path(cart_id: @cart), class: "add-order" %>
+            </center>
+          </div>
+        </div>
+      </div>
+      <br/><%= button_to t("empty_cart"), @cart, method: :delete, confirm: t("are_you_sure"),
+        class: "empty-cart" %>
+    </div>
+  <% end %>
+</div>

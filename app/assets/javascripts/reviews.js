@@ -18,3 +18,7 @@ $(".average-review-rating").raty({
   },
   path: "/assets/"
 });
+
+$("input[name='number']").TouchSpin({
+  verticalbuttons: true
+});

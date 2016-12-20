@@ -59,3 +59,6 @@ en:
   created_at: "Created at: "
   cart: "Cart"
   please_login: "Please login."
+  number: "Number: "
+  add_to_cart: "Add to Cart"
+  vnd: "VND"

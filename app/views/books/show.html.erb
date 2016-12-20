@@ -13,7 +13,10 @@
         <%= @book.author %></span></span>
       <br/>
       <span class="price"><%= t "cover_price" %><span class="num-price">
-        <%= @book.unit_price %><%= t "vnd" %></span></span>
+        <%= display_total_price @book.unit_price %></span></span>
+      <br/><br/>
+      <%= t "number" %>
+      <%= render "order_details/form", book: @book %>
     </div>
     <div class="col-md-3">
       <span class="average"><%= t "average_rating" %></span>
