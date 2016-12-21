@@ -1,0 +1,30 @@
+<% provide :title, t("your_details_order") %>
+<h1><%= t "your_details_order" %></h1>
+
+<div class="your-cart">
+  <table>
+    <tr>
+      <th></th>
+      <th></th>
+      <th>Unit price</th>
+      <th>Number</th>
+      <th>Total price</th>
+    </tr>
+    <% @cart.order_details.each do |cart| %>
+      <tr>
+        <td><span class="book-size-cart"><%= image_tag cart.book.book_img.url(:book_show) %></span></td>
+        <td>
+          <%= link_to cart.book.title, book_path(cart.book), class: "tit" %><br/>
+          <span class="numss">Author: <%= cart.book.author %></span>
+        </td>
+        <td><span class="numss"><%= number_to_currency(cart.book.unit_price, unit: "") %>
+          <%= t "vnd" %></span></td>
+        <td><span class="nums"><%= cart.number %></span></td>
+        <td><span class="numss"><%= number_to_currency(cart.total_price, unit: "") %>
+          <%= t "vnd" %></span></td>
+      </tr>
+    <% end %>
+  </table>
+
+  <span class="baka"><%= link_to t("back"), admin_orders_path %></span>
+</div>

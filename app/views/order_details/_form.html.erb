@@ -1,0 +1,14 @@
+<%= form_for @order_detail do |f| %>
+  <%= render "shared/error_messages", object: f.object %>
+
+  <div class="row">
+    <div class="col-md-3">
+      <%= f.text_field :number, id: "number", name: "number" %>
+      <%= hidden_field_tag :book_id, book.id %>
+    </div>
+
+    <div class="col-md-9">
+      <%= f.submit t("add_to_cart"), class: "add-cart" %>
+    </div>
+  </div>
+<% end %>

@@ -1,0 +1,55 @@
+<% provide :title, t("your_details_cart") %>
+<h1><%= t "your_details_cart" %></h1>
+<%= render "shared/flash" %>
+
+<div>
+  <% if @cart.order_details.blank? %>
+    <center class="no-item"><%= t "no_items_in_your_cart" %></center>
+  <% else %>
+    <div class="your-cart">
+      <div class="row">
+        <div class="col-sm-8">
+          <table>
+            <tr>
+              <th></th>
+              <th></th>
+              <th>Unit price</th>
+              <th>Number</th>
+              <th>Total price</th>
+            </tr>
+            <% @cart.order_details.each do |cart| %>
+              <tr>
+                <td><span class="book-size-cart">
+                  <%= image_tag cart.book.book_img.url(:book_show) %></span></td>
+                <td>
+                  <%= link_to cart.book.title, book_path(cart.book), class: "tit" %><br/>
+                  <span class="numss"><%= t "author" %><%= cart.book.author %></span><br/>
+                  <%= link_to t("delete"), order_detail_path(book_id: cart.book.id),
+                    method: :delete, data: {confirm: t("are_you_sure")}, class: "empty-or-de" %>
+                </td>
+                <td><span class="numss"><%= number_to_currency(cart.book.unit_price, unit: "") %>
+                  <%= t "vnd" %></span></td>
+                <td><span class="nums"><%= cart.number %></span></td>
+                <td><span class="numss"><%= number_to_currency(cart.total_price, unit: "") %>
+                  <%= t "vnd" %></span></td>
+              </tr>
+            <% end %>
+          </table>
+        </div>
+        <div class="col-sm-4">
+          <div class="total">
+            <center>
+              <span class="cost"><%= t "cost" %></span>
+              <span class="costnum"><%= number_to_currency(@cart.total_price, unit: "") %>
+                <%= t "vnd" %></span>
+              <br/><br/>
+              <%= link_to "Order", new_order_path(cart_id: @cart), class: "add-order" %>
+            </center>
+          </div>
+        </div>
+      </div>
+      <br/><%= button_to "Empty cart", @cart, method: :delete, confirm: t("are_you_sure"),
+        class: "empty-cart" %>
+    </div>
+  <% end %>
+</div>

@@ -1,0 +1,10 @@
+<tr>
+  <td><span class="bold"><%= order.id %></span></td>
+  <td><span class="bold"><%= order.user_id %></span></td>
+  <td><span class="bold"><%= number_to_currency(order.cost, unit: "") %>
+    <%= t"vnd" %></span></td>
+  <td class="icon"><%= link_to image_tag("show.jpg"), admin_order_path(order) %></td>
+  <td class="icon"><%= link_to image_tag("delete.jpg"), admin_order_path(order),
+    method: :delete, data: {confirm: t("are_you_sure")} %></td>
+  <td><%= check_box_tag :is_processed, class: "check_is_processed" %></td>
+</tr>

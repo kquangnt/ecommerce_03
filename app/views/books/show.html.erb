@@ -1,0 +1,64 @@
+<% provide :title, t("details_book") %>
+<h1><%= t "details_book" %></h1>
+
+<div class="info-book">
+  <div class="row">
+    <div class="col-sm-3">
+      <span class="book-size-show"><%= image_tag @book.book_img.url(:book_show) %></span>
+    </div>
+    <div class="col-md-6">
+      <span class="tit"><%= @book.title %></span>
+      <br/>
+      <span class="author"><%= t "author" %><span class="na-aut">
+        <%= @book.author %></span></span>
+      <br/>
+      <span class="price"><%= t "cover_price" %><span class="num-price">
+        <%= number_to_currency(@book.unit_price, unit: "") %><%= t "vnd" %></span></span>
+      <br/><br/>
+      <%= t "number" %>
+      <%= render "order_details/form", book: @book %>
+    </div>
+    <div class="col-md-3">
+      <span class="average"><%= t "average_rating" %></span>
+      <br/>
+      <span class="average-review-rating" data-score=<%= @average_review %>></span>
+      <br/><br/>
+      <span><%= t "base_on" %><%= @book.ratings.size %><%= t "num_viewpoints" %></span>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="introduce">
+      <h4><%= t "introduce_the_book" %></h4>
+      <p><%= @book.description %></p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="revie">
+      <h4><%= t "point_of_view" %></h4>
+      <div>
+        <span class="text-rate"><%= t "book.rating_book" %></span>
+        <div class="rating-form"><%= render "ratings/form" %></div>
+      </div>
+      <div>
+        <button class="post-comment"><%= t "post_your_comment" %></button>
+        <div class="revie-form"><%= render "comments/form" %></div>
+      </div>
+      <div>
+        <div class="list-reviews">
+          <ul>
+            <%= render @comments %>
+          </ul>
+        </div>
+
+        <div class="pag-comment"><%= paginate @comments, theme: "twitter-bootstrap-3" %></div>
+      </div>
+    </div>
+  </div>
+
+
+  <span class="baka"><%= link_to t("back"), books_path %></span>
+</div>
+
+<%= javascript_include_tag "reviews" %>

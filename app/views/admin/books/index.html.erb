@@ -1,0 +1,18 @@
+<% provide :title, t("all_books") %>
+<h1><%= t "all_books" %></h1>
+<%= render "shared/flash" %>
+
+<div class="list-categories">
+  <p><%= link_to t("add_book"), new_admin_book_path, class: "add-cate" %></p>
+  <% if @books.blank? %>
+    <p><%= t "no_book_currently" %></p>
+  <% else %>
+    <%= paginate @books, theme: "twitter-bootstrap-3" %>
+
+    <table>
+      <%= render @books %>
+    </table>
+
+    <p><%= link_to t("back"), admin_root_path %></p>
+  <% end %>
+</div>

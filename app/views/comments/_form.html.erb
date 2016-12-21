@@ -1,0 +1,11 @@
+<%= form_for [@book, @book.comments.build], remote: true do |f| %>
+  <div id="close"><%= t "close" %></div>
+
+  <%= f.label t("write_your_comment_about_book") %>
+  <%= f.text_area :comment, class: "form-control" %>
+
+  <div><%= f.submit t("create_comment"), placeholder: t("write_your_comment_about_book"),
+    class: "create-comment" %></div>
+<% end %>
+
+<%= javascript_include_tag "reviews" %>

@@ -1,0 +1,24 @@
+<% provide :title, t("all_yours_orders") %>
+<h1><%= t "all_yours_orders" %></h1>
+<%= render "shared/flash" %>
+
+<div class="list-categories">
+  <% if @orders.blank? %>
+  <center class="no-item"><%= t "no_have_order_currently" %></center>
+  <% else %>
+    <div>
+      <%= paginate @orders, theme: "twitter-bootstrap-3" %>
+
+      <table>
+        <tr>
+          <th>Code order</th>
+          <th>Cost</th>
+          <th></th>
+          <th></th>
+        </tr>
+        <%= render @orders %>
+      </table>
+    </div>
+  <% end %>
+</div>
+

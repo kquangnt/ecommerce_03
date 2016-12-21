@@ -1,0 +1,32 @@
+<% provide :title, t("edit_book") %>
+<% provide :button_text, t("save_changes") %>
+<h2><%= t "edit_book" %></h2>
+<%= render "shared/flash" %>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for [:admin, @book], html: {multipart: true} do |f| %>
+      <%= render "shared/error_messages", object: f.object %>
+
+      <%= f.label :category_id %>
+      <%= f.select :category_id, categories, class: "form-control" %>
+
+      <%= f.label :title %>
+      <%= f.text_field :title, class: "form-control" %>
+
+      <%= f.label :author %>
+      <%= f.text_field :author, class: "form-control" %>
+
+      <%= f.label :description %>
+      <%= f.text_area :description, class: "form-control" %>
+
+      <%= f.label :unit_price %>
+      <%= f.text_field :unit_price, class: "form-control" %>
+
+      <%= f.label :book_img %>
+      <%= f.file_field :book_img, class: "form-control" %>
+
+      <%= f.submit yield(:button_text), class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,25 @@
+// Place all the styles related to the admin/home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.adbook-home {
+  h2 {
+    color: green;
+  }
+  .choose {
+    margin-top: 20px;
+    #topi {
+      font-size: 20px;
+      color: #00008B;
+      font-family: "Tamaho", sans-serif;
+      border: 0px solid red;
+      border-radius: 5px;
+      background-color: lightgrey;
+      padding: 5px 20px 20px 10px;
+    }
+    #topi:hover {
+      color: #0000CD;
+      text-decoration: none;
+      border-bottom: 3px solid #1E90FF;
+    }
+  }
+}

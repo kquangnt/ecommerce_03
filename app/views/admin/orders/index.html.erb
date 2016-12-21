@@ -1,0 +1,27 @@
+<% provide :title, t("all_orders") %>
+<h1><%= t "all_orders" %></h1>
+<%= render "shared/flash" %>
+
+<div class="list-categories">
+  <% if @orders.count == 0 %>
+    <p><%= t "no_order_currently" %></p>
+  <% else %>
+    <%= paginate @orders, theme: "twitter-bootstrap-3" %>
+
+    <table>
+      <tr>
+        <th><%= t "code_order" %></th>
+        <th><%= t "code_user" %></th>
+        <th><%= t "order_admin.cost" %></th>
+        <th><%= t "view_cart" %></th>
+        <th><%= t "delete" %></th>
+        <th><%= t "is_processed" %></th>
+      </tr>
+      <%= render @orders %>
+    </table>
+
+    <p><%= link_to t("back"), admin_root_path %></p>
+  <% end %>
+</div>
+
+<%= javascript_include_tag "reviews" %>

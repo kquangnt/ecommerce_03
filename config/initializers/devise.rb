@@ -1,6 +1,10 @@
 # Use this hook to configure devise mailer, warden hooks and so forth.
 # Many of these configuration options can be set straight in your model.
 Devise.setup do |config|
+  config.omniauth :facebook, '545638485642450', '8377febe7a1186639d106c6f2518a8df',
+    scope: 'email, public_profile,user_birthday,user_education_history,user_hometown,
+    user_location,user_work_history'
+  #config.omniauth :google, '368358566345', '5cL-XwqgVvOVCWMvG3utsq3H'
   # The secret key used by Devise. Devise uses this key to generate
   # random tokens. Changing this key will render invalid all existing
   # confirmation, reset password and unlock tokens in the database.

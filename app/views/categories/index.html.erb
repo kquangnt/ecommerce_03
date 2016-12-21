@@ -1,0 +1,12 @@
+<% provide :title, t("all_categories") %>
+<h1><%= t "all_categories" %></h1>
+<%= render "shared/flash" %>
+
+<div class="list-categories">
+
+  <ul>
+    <%= render @categories %>
+  </ul>
+
+  <%= paginate @categories, theme: "twitter-bootstrap-3" %>
+</div>

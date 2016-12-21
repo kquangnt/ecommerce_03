@@ -1,0 +1,22 @@
+<% provide :title, t("all_categories") %>
+<h1><%= t "all_categories" %></h1>
+<%= render "shared/flash" %>
+
+<div class="list-categories">
+  <p><%= link_to t("add_category"), new_admin_category_path, class: "add-cate" %></p>
+
+  <div>
+    <%= form_tag(admin_categories_path, method: "get", id: "search-form") do %>
+      <%= text_field_tag :search, params[:search], placeholder: t("search_categories") %>
+      <%= submit_tag t("search"), class: "btn btn-success" %>
+    <% end %>
+  </div>
+
+  <table>
+    <%= render @categories %>
+  </table>
+
+  <%= paginate @categories, theme: "twitter-bootstrap-3" %>
+
+  <p><%= link_to t("back"), admin_root_path %></p>
+</div>

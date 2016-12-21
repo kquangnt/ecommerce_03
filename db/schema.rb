@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161122011808) do
+ActiveRecord::Schema.define(version: 20161220180403) do
 
   create_table "activities", force: :cascade do |t|
     t.integer  "user_id"
@@ -27,12 +27,18 @@ ActiveRecord::Schema.define(version: 20161122011808) do
     t.string   "author"
     t.integer  "unit_price"
     t.integer  "category_id"
-    t.datetime "created_at",            null: false
-    t.datetime "updated_at",            null: false
+    t.datetime "created_at",                            null: false
+    t.datetime "updated_at",                            null: false
     t.string   "book_img_file_name"
     t.string   "book_img_content_type"
     t.integer  "book_img_file_size"
     t.datetime "book_img_updated_at"
+    t.decimal  "view_count",            default: "0.0"
+  end
+
+  create_table "carts", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "categories", force: :cascade do |t|
@@ -41,21 +47,32 @@ ActiveRecord::Schema.define(version: 20161122011808) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "order_details", force: :cascade do |t|
-    t.integer  "order_id"
+  create_table "comments", force: :cascade do |t|
+    t.text     "comment"
+    t.integer  "user_id"
     t.integer  "book_id"
-    t.integer  "number"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "order_details", force: :cascade do |t|
+    t.integer  "unit_price_current"
+    t.integer  "book_id"
+    t.integer  "number",             default: 1
     t.integer  "total_price"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+    t.integer  "cart_id"
   end
 
   create_table "orders", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "cost"
-    t.boolean  "is_accept"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.boolean  "is_accept",    default: true
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+    t.integer  "cart_id"
+    t.boolean  "is_processed", default: false
   end
 
   create_table "reviews", force: :cascade do |t|
@@ -84,6 +101,8 @@ ActiveRecord::Schema.define(version: 20161122011808) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.string   "provider"
+    t.string   "uid"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

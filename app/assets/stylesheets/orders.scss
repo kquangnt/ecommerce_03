@@ -1,0 +1,15 @@
+// Place all the styles related to the orders controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.bold {
+  font-weight: bold;
+  color: rgb(107, 151, 200);
+}
+
+.confirm {
+  font-family: "Tamaho", sans-serif;
+  font-size: 15px;
+  span {
+    font-weight: bold;
+  }
+}

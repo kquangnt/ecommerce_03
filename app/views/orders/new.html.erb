@@ -1,0 +1,30 @@
+<% provide :title, t("add_order") %>
+<% provide :button_text, t("send_request_to_order") %>
+<h2><%= t "your_order" %></h2>
+<%= render "shared/flash" %>
+
+<div class="row">
+  <div class="col-sm-8">
+    <center class="confirm">
+      <h3>Confirm your information</h3>
+      <table>
+        <tr>
+          <td><%= t "user_name" %></td>
+          <td><span><%= @current_user.name %></span></td>
+        </tr>
+        <tr>
+          <td><%= t "email" %></td>
+          <td><span><%= @current_user.email %></span></td>
+        </tr>
+        <tr>
+          <td><%= t "telephone" %></td>
+          <td><span><%= @current_user.telephone %></span></td>
+        </tr>
+      </table>
+    </center>
+  </div>
+  <div class="col-sm-4">
+    <br/><br/>
+    <%= render "form" %>
+  </div>
+</div>

@@ -1,0 +1,61 @@
+// Place all the styles related to the admin/categories controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.list-categories {
+  table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  th, td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  tr:hover{background-color:#f5f5f5}
+  p {
+    padding-top: 20px;
+    font-family: "Ubuntu Condensed", sans-serif;
+    font-size: 20px;
+  }
+  p:hover {
+    color: blue;
+  }
+}
+
+.sam-bak {
+  padding-top: 20px;
+  font-family: "Ubuntu Condensed", sans-serif;
+  font-size: 20px;
+}
+.sam-bak:hover {
+  color: blue;
+  text-decoration: none;
+}
+
+.add-cate {
+  font-size: 20px;
+  color: white;
+  font-family: "Tamaho", sans-serif;
+  border: 0px solid red;
+  border-radius: 5px;
+  background-color: rgb(37, 166, 249);
+  padding: 5px 10px 5px 10px;
+}
+.add-cate:hover {
+  color: white;
+  text-decoration: none;
+  background-color: rgb(37, 110, 249);
+}
+
+.unit-book {
+  color: rgb(93, 73, 174);
+  font-family: "Ubuntu Condensed", sans-serif;
+  font-size: 25px;
+}
+.unit-book:hover {
+  color: rgb(5, 73, 96);
+  text-decoration: none;
+}
+.list-reviews {
+  margin: 10px 0 0 0px;
+}

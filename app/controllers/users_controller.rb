@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :list_categories
   before_action :authenticate_user!
   before_action :load_user, only: :show
 

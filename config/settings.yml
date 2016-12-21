@@ -1,5 +1,13 @@
 per_page:
   user: 3
+  category: 10
+  book: 6
+  comment: 5
+  order: 10
 book_index: "250x350>"
 book_show: "325x475>"
+size_book: 0..100
 maximum_name: 255
+average_round: 2
+ky_tu_rong: "%"
+default_number: 1
