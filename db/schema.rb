@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161220180403) do
+ActiveRecord::Schema.define(version: 20161222230242) do
 
   create_table "activities", force: :cascade do |t|
     t.integer  "user_id"
@@ -19,6 +19,15 @@ ActiveRecord::Schema.define(version: 20161220180403) do
     t.integer  "target_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+  end
+
+  create_table "answers", force: :cascade do |t|
+    t.string   "content"
+    t.integer  "user_id"
+    t.integer  "book_id"
+    t.integer  "comment_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "books", force: :cascade do |t|
@@ -75,7 +84,7 @@ ActiveRecord::Schema.define(version: 20161220180403) do
     t.boolean  "is_processed", default: false
   end
 
-  create_table "reviews", force: :cascade do |t|
+  create_table "ratings", force: :cascade do |t|
     t.integer  "rating"
     t.text     "comment"
     t.integer  "user_id"

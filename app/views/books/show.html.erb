@@ -39,7 +39,11 @@
       <h4><%= t "point_of_view" %></h4>
       <div>
         <span class="text-rate"><%= t "book.rating_book" %></span>
-        <div class="rating-form"><%= render "ratings/form" %></div>
+        <% if @rating.blank? %>
+          <div class="rating-alert"><%= render "form_rate" %></div>
+        <% else %>
+          <div class="rating-alert"><%= render "form_edit_rate" %></div>
+        <% end %>
       </div>
       <div>
         <button class="post-comment"><%= t "post_your_comment" %></button>
@@ -56,7 +60,6 @@
       </div>
     </div>
   </div>
-
 
   <span class="baka"><%= link_to t("back"), books_path %></span>
 </div>

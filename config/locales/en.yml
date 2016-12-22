@@ -56,7 +56,7 @@ en:
   introduce_the_book: "Introduce the book"
   post_your_comment: "Post your comment"
   write_your_comment_about_book: "Write your comment about book"
-  create_comment: "Create comment"
+  create_comment: "Submit comment"
   average_rating: "Average rating"
   base_on: "(base on "
   num_viewpoints: " viewpoints)"
@@ -77,6 +77,8 @@ en:
   success_delete_order_detail: "Delete successfully"
   order:
     your_order_is_sent_successfully: "Your order is sent successfully"
+    order: "Order"
+    continue_shopping: "Continue shopping?"
   code_order: "Code order"
   code_user: "Code user"
   view_cart: "View cart"
@@ -103,3 +105,7 @@ en:
   rating:
     your_rating_is_submit_successfully: "Your rating is submit successfully"
     you_must_choose_value_before_submit_rating: "You must choose value before submit rating"
+  two_point: " : "
+  the_book_have_not_rating: "The book have not rating"
+  your_rating: "Your rating: "
+  let_rating: "Let's rating for this book"

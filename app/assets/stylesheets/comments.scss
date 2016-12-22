@@ -1,3 +1,15 @@
 // Place all the styles related to the Comments controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+label.error{
+  font-weight: normal;
+  font-family: "Ubuntu Condensed", sans-serif;
+  color: red;
+}
+
+.write-comment {
+  font-size: 17px;
+  color: #008080;
+  font-family: "Ubuntu", sans-serif;
+  font-weight: normal;
+}

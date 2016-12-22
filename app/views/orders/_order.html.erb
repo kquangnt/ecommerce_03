@@ -2,6 +2,7 @@
   <td><span class="bold"><%= order.id %></span></td>
   <td><span class="bold"><%= number_to_currency(order.cost, unit: "") %>
     <%= t"vnd" %></span></td>
+  <td></td>
   <td><%= link_to t("show"), order_path(order) %></td>
   <td><%= link_to t("destroy"), order, method: :delete,
     data: {confirm: t("are_you_sure")} %></td>

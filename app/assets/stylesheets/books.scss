@@ -68,12 +68,9 @@
       padding: 3px;
       display: none;
     }
-    .rating-form{
+    .rating-alert{
       margin-left: 120px;
       margin-top: -23px;
-      .bor-create-rating {
-        margin-top: -27px;
-      }
     }
     .text-rate {
       font-family: "Ubuntu Condensed", sans-serif;
@@ -129,34 +126,20 @@
   }
 }
 
-.create-rating {
-  font-size: 13px;
-  color: white;
-  font-family: "Tamaho", sans-serif;
-  border: 0px solid red;
-  border-radius: 5px;
-  background-color: #e68a00;
-  padding: 5px 10px 5px 10px;
-  margin-left: 150px;
-}
-.create-rating:hover{
-  background-color: #cc7a00;
-}
-
 .create-comment {
   font-size: 13px;
   color: white;
   font-family: "Tamaho", sans-serif;
   border: 0px solid red;
   border-radius: 5px;
-  background-color: rgb(37, 110, 249);
+  background-color: #008080;
   padding: 5px 10px 5px 10px;
   margin-top: 4px;
 }
 .create-comment:hover {
   color: white;
   text-decoration: none;
-  background-color: #4d94ff;
+  background-color: #006666;
 }
 
 #close {

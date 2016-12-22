@@ -4,7 +4,7 @@ $("#rating-form").raty({
 });
 
 $(".review-rating").raty({
-  readOnly: true,
+  scoreName: "rating[rating]",
   score: function() {
     return $(this).attr("data-score");
   },
@@ -19,17 +19,16 @@ $(".average-review-rating").raty({
   path: "/assets/"
 });
 
-$(".new_review").validate({
+$(".new_comment").validate({
   errorPlacement: function (error, element) {
     error.insertAfter(element);
   },
   debug: true,
   rules: {
-    "review[rating]": {required: true},
-    "review[comment]": {required: true}
+    "comment[comment]": {required: true}
   },
   messages: {
-    "review[comment]": {
+    "comment[comment]": {
       required: "You must type comment"
     }
   },
@@ -52,8 +51,4 @@ $(document).ready(function(){
 
 $("input[name='number']").TouchSpin({
   verticalbuttons: true
-});
-
-$(check_is_processed).click(function(){
-
 });

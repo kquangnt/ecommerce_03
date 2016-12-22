@@ -21,8 +21,15 @@ class BooksController < ApplicationController
   def show
     @order_detail = OrderDetail.new
     @comments = @book.comments.order_date_desc.page(params[:page]).per Settings.per_page.comment
-    @ratings = @book.ratings.order_date_desc.page(params[:page])
-      .per Settings.per_page.rating
+    if current_user.blank?
+      @rating = Settings.sezo
+    else
+      @rating = Rating.find_by book_id: @book.id, user_id: @current_user.id
+      unless @rating
+        @rating = Settings.sezo
+      end
+    end
+    @ratings = @book.ratings.all
     if @ratings.blank?
       @average_review = 0
     else

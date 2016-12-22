@@ -6,5 +6,11 @@
   <td class="icon"><%= link_to image_tag("show.jpg"), admin_order_path(order) %></td>
   <td class="icon"><%= link_to image_tag("delete.jpg"), admin_order_path(order),
     method: :delete, data: {confirm: t("are_you_sure")} %></td>
-  <td><%= check_box_tag :is_processed, class: "check_is_processed" %></td>
+  <td>
+    <div class="check_is_processed">
+      <%= form_for order, remote: true do |f| %>
+        <%= check_box_tag :is_processed %>
+      <% end %>
+    </div>
+  </td>
 </tr>

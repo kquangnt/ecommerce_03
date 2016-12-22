@@ -3,7 +3,22 @@
 <%= render "shared/flash" %>
 
 <div class="info-users">
-  <div><%= image_tag @book.book_img.url(:book_index) %></div>
+  <div class="row">
+    <div class="col-sm-4"><%= image_tag @book.book_img.url(:book_index) %></div>
+    <div class="col-sm-8">
+      <center><h3><%= t "ratings" %></h3></center>
+      <% if @ratings.blank? %>
+        <%= t "the_book_have_not_rating" %>
+      <% else %>
+        <div class="list-categories">
+          <ul>
+            <%= render @ratings %>
+          </ul>
+          <%= paginate @ratings, theme: "twitter-bootstrap-3" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
   <div>
     <table>
       <tr class="element">
@@ -37,3 +52,5 @@
     data: {confirm: t("are_you_sure")}, class: "sam-bak" %></span>
   <span>| <%= link_to t("back"), admin_books_path, class: "sam-bak" %></span>
 </div>
+
+<%= javascript_include_tag "reviews" %>

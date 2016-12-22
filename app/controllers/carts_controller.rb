@@ -1,5 +1,5 @@
 class CartsController < ApplicationController
-  before_action :authenticate_user!
+  #before_action :authenticate_user!
   before_action :list_categories
   load_and_authorize_resource
 

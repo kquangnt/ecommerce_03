@@ -42,10 +42,12 @@
               <span class="cost"><%= t "cost" %></span>
               <span class="costnum"><%= number_to_currency(@cart.total_price, unit: "") %>
                 <%= t "vnd" %></span>
-              <br/><br/>
-              <%= link_to "Order", new_order_path(cart_id: @cart), class: "add-order" %>
+              <br/><br/><br/>
+              <%= link_to t("order.order"), new_order_path(cart_id: @cart), class: "add-order" %>
             </center>
           </div>
+          <div class="cont-shopping"><%= link_to t("order.continue_shopping"),
+            root_path, class: "add-shopping" %></div>
         </div>
       </div>
       <br/><%= button_to "Empty cart", @cart, method: :delete, confirm: t("are_you_sure"),

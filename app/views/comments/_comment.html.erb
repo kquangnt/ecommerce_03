@@ -3,6 +3,7 @@
     <span class="user-name"><%= comment.user.name %></span>
     <br/>
     <p><%= comment.comment %></p>
+    <%= link_to t("comment"), book_comment_path(comment.book, comment)
     <span class="timestamp"><%= t "posted" %>
       <%= time_ago_in_words(comment.created_at) %><%= t"ago" %></span>
 

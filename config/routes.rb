@@ -16,7 +16,9 @@ Rails.application.routes.draw do
   resources :categories, only: :index
   resources :books, only: [:index, :show] do
     resources :ratings
-    resources :comments
+    resources :comments do
+      resources :answers
+    end
   end
 
   resources :orders

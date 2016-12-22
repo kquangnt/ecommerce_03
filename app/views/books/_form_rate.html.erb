@@ -1,0 +1,5 @@
+<%= form_for [@book, @book.ratings.build], remote: true do |f| %>
+  <div id="rating-form"></div>
+<% end %>
+
+<%= javascript_include_tag "rating" %>

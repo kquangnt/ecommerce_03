@@ -1,0 +1,5 @@
+<%= form_for [@book, @rating], remote: true do |f| %>
+  <span class="review-rating" data-score=<%= @rating.rating %>></span>
+<% end %>
+
+<%= javascript_include_tag "rating" %>

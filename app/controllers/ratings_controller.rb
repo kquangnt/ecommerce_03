@@ -7,25 +7,26 @@ class RatingsController < ApplicationController
 
   def create
     @rating = Rating.new rating_params
-    @rating.save
-    redirect_to book_path @book
-  end
-
-  def edit
-  end
-
-  def update
-    if @rating.update
-      flash[:success] = t "update_rating_successfully"
-      redirect_to book_path @book_path
+    if @rating.save
+      respond_to do |format|
+        format.js
+      end
     else
-      render :edit
+      flash[:danger] = t "error_rating_fail"
+      redirect_to root_path
     end
   end
 
-  def destroy
-    @rating.destroy
-    redirect_to book_path @book
+  def update
+    @rating = Rating.find_by book_id: @book.id, user_id: current_user.id
+    if @rating.update_attributes rating_params
+      respond_to do |format|
+        format.js
+      end
+    else
+      flash[:danger] = t "error_edit_rating_fail"
+      redirect_to root_path
+    end
   end
 
   private
