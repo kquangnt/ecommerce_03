@@ -125,3 +125,6 @@ en:
   success_delete_book: "Delete book successful"
   fail_delete_book: "Delete book fail"
   address: "10th Floor, Sortware Park, 02 Quang Trung, Da Nang, Viet Nam"
+  xuat_hoa_don_excel: "Export Bill in Excel"
+  bill: "BILL OF PAYMENT"
+  list_order: "List of books ordered: "

@@ -1,0 +1,54 @@
+<table>
+  <tr>
+    <th></th>
+    <th></th>
+    <th><%= t "bill" %></th>
+    <th></th>
+    <th></th>
+  </tr>
+  <tr>
+    <td><%= t "code_order_2" %><%= @order.id %></td>
+    <th></th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+  <tr>
+    <td><%= t "name_of_the_user_ordering" %><%= @order.user_id %></td>
+    <th></th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+  <tr></tr>
+  <tr>
+    <td><%= t "list_order" %></td>
+    <th></th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+  <tr>
+    <th><%= t "title" %></th>
+    <th><%= t "author" %></th>
+    <th><%= t "unit_price" %></th>
+    <th><%= t "number" %></th>
+    <th><%= t "total_price" %></th>
+  </tr>
+  <% @cart.order_details.each do |cart| %>
+  <tr>
+    <td><%= cart.book.title %></td>
+    <td><center><%= cart.book.author %></center></td>
+    <td><center><%= display_total_price cart.unit_price_current %></center></td>
+    <td><center><%= cart.number %></center></td>
+    <td><center><%= display_total_price cart.total_price %></center></td>
+  </tr>
+  <% end %>
+  <tr>
+    <th></th>
+    <th></th>
+    <th></th>
+    <th></th>
+    <th><%= t "total" %><%= display_cost %></th>
+  </tr>
+</table>

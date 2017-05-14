@@ -1,0 +1,30 @@
+<%= form_tag(books_path, method: "get", id: "search-form2") do %>
+  <div class="row">
+    <div class="col-sm-3">
+      <div class="search-book">
+        <%= text_field_tag :search1, params[:search1],
+          placeholder: t("search_books"), class: "form-control" %>
+      </div>
+    </div>
+
+    <div class="col-sm-3">
+      <div class="search-by-price">
+        <%= text_field_tag :search2, params[:search2],
+          placeholder: t("search_by_price"), class: "form-control" %>
+      </div>
+    </div>
+
+    <div class="col-sm-4">
+      <div class="search-by-category">
+        <%= select_tag(:category_id, options_for_select(categories),
+          prompt: t("search_by_category"), class: "form-control") %>
+      </div>
+    </div>
+
+    <div class="col-sm-2">
+      <div class="search-button">
+        <%= submit_tag t("search"), class: "btn btn-success" %>
+      </div>
+    </div>
+  </div>
+<% end %>

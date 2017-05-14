@@ -30,6 +30,15 @@
       <h4><%= t "total" %><%= display_cost %></h4>
       <br/>
 
+
+      <div class="export">
+        <%= link_to t("xuat_hoa_don_excel"),
+          admin_order_path(format: :xls), class: "btn btn-info" %>
+
+      </div>
+      <br/>
+
+
       <span class="baka"><%= link_to t("back"), admin_orders_path %></span>
     </div>
     <div class="col-sm-4">

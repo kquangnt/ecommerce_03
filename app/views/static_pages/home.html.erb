@@ -1,3 +1,5 @@
+<br/><br/>
+<%= render "slidercss" %>
 <div class="book-home">
   <div class="theme-header">
     <h1><%= t("theme_header") %></h1>
@@ -49,9 +51,8 @@
 
       <center><%= paginate @books_home, theme: "twitter-bootstrap-3" %></center>
     </div>
-    <% if user_signed_in? %>
-      <script lang="javascript">(function() {var pname = ( (document.title !='')? document.title : document.querySelector('h1').innerHTML );var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async=1; ga.src = '//live.vnpgroup.net/js/web_client_box.php?hash=1bfc2b854949d7f02446dd337caf7205&data=eyJzc29faWQiOjQ4MDcwODMsImhhc2giOiI5MDI1MDhhMjdiYzAwMmY1NTVlYTkzYmJlYmExNGI0OCJ9&pname='+pname;var s = document.getElementsByTagName('script');s[0].parentNode.insertBefore(ga, s[0]);})();</script>
-    <% end %>
+    <script lang="javascript">(function() {var pname = ( (document.title !='')? document.title : document.querySelector('h1').innerHTML );var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async=1; ga.src = '//live.vnpgroup.net/js/web_client_box.php?hash=1bfc2b854949d7f02446dd337caf7205&data=eyJzc29faWQiOjQ4MDcwODMsImhhc2giOiI5MDI1MDhhMjdiYzAwMmY1NTVlYTkzYmJlYmExNGI0OCJ9&pname='+pname;var s = document.getElementsByTagName('script');s[0].parentNode.insertBefore(ga, s[0]);})();</script>
+
   <% end %>
 </div>
 

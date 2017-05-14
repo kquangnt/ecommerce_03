@@ -6,6 +6,11 @@ class Admin::OrdersController < ApplicationController
   def index
     @orders = Order.created_desc.page(params[:page])
       .per Settings.per_page.order
+    respond_to do |format|
+      format.html
+      format.xls
+      format.csv {send_data @order.to_csv}
+    end
   end
 
   def show
