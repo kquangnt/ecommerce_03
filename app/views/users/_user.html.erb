@@ -8,3 +8,13 @@
       data: {confirm: t("are_you_sure")} %>
   <% end %>
 </li>
+<tr>
+  <td><%= user.id %> -- </td>
+  <td><%= link_to user.name, user, class: "unit-user" %></td>
+  <td>
+    <% if can? :destroy, user %>
+      | <%= link_to t("delete"), user, method: :delete,
+        data: {confirm: t("are_you_sure")}, class: "btn btn-primary" %>
+    <% end %>
+  </td>
+</tr>

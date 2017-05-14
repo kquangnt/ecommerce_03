@@ -1,9 +1,9 @@
 <% provide :title, t("details_book") %>
-<h1><%= t "details_book" %></h1>
 
 <div class="info-book">
   <div class="row">
     <div class="col-sm-3">
+      <%= social_share_button_tag(@book.title, :url => "https://brs42.herokuapp.com") %>
       <span class="book-size-show"><%= image_tag @book.book_img.url(:book_show) %></span>
     </div>
     <div class="col-md-6">
@@ -13,7 +13,7 @@
         <%= @book.author %></span></span>
       <br/>
       <span class="price"><%= t "cover_price" %><span class="num-price">
-        <%= number_to_currency(@book.unit_price, unit: "") %><%= t "vnd" %></span></span>
+        <%= display_total_price @book.unit_price %></span></span>
       <br/><br/>
       <%= t "number" %>
       <%= render "order_details/form", book: @book %>
@@ -21,9 +21,9 @@
     <div class="col-md-3">
       <span class="average"><%= t "average_rating" %></span>
       <br/>
-      <span class="average-review-rating" data-score=<%= @average_review %>></span>
+      <span class="average-review-rating" data-score=<%= @average_review1 %>></span>
       <br/><br/>
-      <span><%= t "base_on" %><%= @book.ratings.size %><%= t "num_viewpoints" %></span>
+      <span><%= t "base_on" %><%= @book.review1s.size %><%= t "num_viewpoints" %></span>
     </div>
   </div>
 
@@ -38,25 +38,17 @@
     <div class="revie">
       <h4><%= t "point_of_view" %></h4>
       <div>
-        <span class="text-rate"><%= t "book.rating_book" %></span>
-        <% if @rating.blank? %>
-          <div class="rating-alert"><%= render "form_rate" %></div>
-        <% else %>
-          <div class="rating-alert"><%= render "form_edit_rate" %></div>
-        <% end %>
-      </div>
-      <div>
         <button class="post-comment"><%= t "post_your_comment" %></button>
-        <div class="revie-form"><%= render "comments/form" %></div>
+        <div class="revie-form"><%= render "review1s/form" %></div>
       </div>
       <div>
         <div class="list-reviews">
           <ul>
-            <%= render @comments %>
+          <%= render @review1s %>
           </ul>
         </div>
 
-        <div class="pag-comment"><%= paginate @comments, theme: "twitter-bootstrap-3" %></div>
+        <div class="pag-comment"><%= paginate @review1s, theme: "twitter-bootstrap-3" %></div>
       </div>
     </div>
   </div>

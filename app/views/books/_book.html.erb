@@ -7,8 +7,8 @@
     <h5><%= book.author %></h5>
     <h4><%= number_to_currency(book.unit_price, unit: "") %><%= t "vnd" %></h4>
     <span class="average-review-rating" data-score=<%=
-      book.ratings.average(:rating) %>></span>
-    <%= t "(" %><%= book.ratings.count %><%= t "num_viewpoints" %><br/>
+      book.review1s.average(:rating1) %>></span>
+    <%= t "(" %><%= book.review1s.count %><%= t "num_viewpoints" %><br/>
     <%= button_to t("add_to_cart"), order_details_path(number: Settings.default_number,
       book_id: book.id), class: "add-cart-home" %>
   </div>

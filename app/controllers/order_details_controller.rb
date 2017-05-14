@@ -15,8 +15,7 @@ class OrderDetailsController < ApplicationController
   def create
     @cart = current_cart
     if params[:number]
-      @order_detail = OrderDetail.new
-      @order_detail.number = params[:number]
+      @order_detail = OrderDetail.new number: params[:number]
     else
       @order_detail = OrderDetail.new order_detail_params
     end
@@ -24,6 +23,7 @@ class OrderDetailsController < ApplicationController
     @order_detail.unit_price_current = @book.unit_price
 
     if @order_detail.save
+      flash[:success] = t "add_book_successfully"
       redirect_to @order_detail.cart
     else
       render :new
@@ -44,11 +44,15 @@ class OrderDetailsController < ApplicationController
   end
 
   def destroy
-    @order_detail = OrderDetail.find_by(cart_id: current_cart.id, book_id: @book.id)
-    if @order_detail.destroy
-      flash[:success] = t "success_delete_order_detail"
+    @order_detail = OrderDetail.find_by cart_id: current_cart.id, book_id: @book.id
+    if @order_detail
+      if @order_detail.destroy
+        flash[:success] = t "success_delete_order_detail"
+      else
+        flash[:danger] = t "fail_delete_order_detail"
+      end
     else
-      flash[:danger] = t "fail_delete_order_detail"
+      flash[:danger] = t "order_detail_not_exist"
     end
     redirect_to cart_path current_cart
   end

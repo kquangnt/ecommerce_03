@@ -9,13 +9,13 @@ class Ability
       can :destroy, User do |current_user|
         current_user == user
       end
-      can :create, Rating
-      can :update, Rating do |rating|
-        rating.user == user
+      can :create, Review1
+      can :destroy, Review1 do |review1|
+        review1.user == user
       end
-      can :create, Comment
-      can :destroy, Comment do |comment|
-        comment.user == user
+      can :create, Answer
+      can :destroy, Answer do |answer|
+        answer.user == user
       end
       can :create, Order
       can :destroy, Order do |order|

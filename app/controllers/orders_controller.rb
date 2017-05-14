@@ -3,6 +3,11 @@ class OrdersController < ApplicationController
   before_action :list_categories
   load_and_authorize_resource
 
+  def index
+    @orders = Order.filter_user(current_user.id).created_desc.page(params[:page])
+      .per Settings.per_page.order
+  end
+
   def new
     if current_user.blank?
       redirect_to new_user_session_path
@@ -17,23 +22,22 @@ class OrdersController < ApplicationController
     else
       @order = Order.new order_params
       if @order.save
-        redirect_to orders_path
         flash[:success] = t "order.your_order_is_sent_successfully"
         @cart = Cart.create
         session[:cart_id] = @cart.id
+        redirect_to orders_path
       else
         render :new
       end
     end
   end
 
-  def index
-    @orders = Order.filter_user(current_user.id).order_date_desc.page(params[:page])
-      .per Settings.per_page.order
-  end
-
   def show
-    @cart = Cart.find_by_id(@order.cart_id)
+    @cart = Cart.find_by id: @order.cart_id
+    unless @cart
+      flash[:danger] = t "cart_not_exist"
+      redirect_to orders_path
+    end
   end
 
   def destroy
@@ -47,7 +51,7 @@ class OrdersController < ApplicationController
 
   private
   def order_params
-    params.require(:order).permit(:is_accept, :cart_id)
+    params.require(:order).permit(:is_accept, :is_processed, :cart_id)
       .merge! user_id: current_user.id, cost: current_cart.total_price
   end
 end

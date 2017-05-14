@@ -3,8 +3,8 @@ class Book < ApplicationRecord
   has_many :order_details
   before_destroy :check_if_has_order_detail
   has_many :orders, through: :order_details
-  has_many :ratings, dependent: :destroy
-  has_many :comments, dependent: :destroy
+  has_many :review1s, dependent: :destroy
+  has_many :answers, through: :review1s
 
   has_attached_file :book_img, styles: {book_index: Settings.book_index,
     book_show: Settings.book_show, default_url: "/images/:style/missing.png"}

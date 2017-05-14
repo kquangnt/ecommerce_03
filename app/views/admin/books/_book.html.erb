@@ -1,6 +1,6 @@
 <tr>
   <td><%= link_to book.title, admin_book_path(book), class: "unit-book" %></td>
-  <td><%= link_to t("edit"), edit_admin_book_path(book), class: "sam-bak" %></td>
+  <td><%= link_to t("edit"), edit_admin_book_path(book), class: "sam-bak", class: "btn btn-primary" %></td>
   <td><%= link_to t("delete"), admin_book_path(book), method: :delete,
-    data: {confirm: t("are_you_sure")}, class: "sam-bak" %></td>
+    data: {confirm: t("are_you_sure")}, class: "sam-bak", class: "btn btn-primary" %></td>
 </tr>

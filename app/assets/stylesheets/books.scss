@@ -148,7 +148,7 @@
   font-family: "Tamaho", sans-serif;
   border: 0px solid red;
   border-radius: 5px;
-  background-color: #992600;
+  background-color: #80aaff;
   padding: 5px 10px 5px 10px;
   margin: 4px 0 10px 0;
   float: right;
@@ -156,5 +156,22 @@
 #close:hover {
   color: white;
   text-decoration: none;
-  background-color: #cc3300;
+  background-color: #004de6;
+}
+
+#hide {
+  font-size: 13px;
+  color: white;
+  font-family: "Tamaho", sans-serif;
+  border: 0px solid red;
+  border-radius: 5px;
+  background-color: #80aaff;
+  padding: 3px 7px;
+  margin: 4px 0 10px 0;
+  float: right;
+}
+#hide:hover {
+  color: white;
+  text-decoration: none;
+  background-color: #004de6;
 }

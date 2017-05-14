@@ -16,3 +16,11 @@
 @import url(http://fonts.googleapis.com/css?family=Lora|Ubuntu:300,400,500);
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "social-share-button";
+
+.social-share-button-facebook {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  background: url("/social/facebook.png") no-repeat;
+}

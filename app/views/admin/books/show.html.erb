@@ -1,24 +1,19 @@
 <% provide :title, t("all_books") %>
-<h1><%= t "details_books" %></h1>
+
 <%= render "shared/flash" %>
 
 <div class="info-users">
   <div class="row">
     <div class="col-sm-4"><%= image_tag @book.book_img.url(:book_index) %></div>
     <div class="col-sm-8">
-      <center><h3><%= t "ratings" %></h3></center>
-      <% if @ratings.blank? %>
-        <%= t "the_book_have_not_rating" %>
-      <% else %>
-        <div class="list-categories">
-          <ul>
-            <%= render @ratings %>
-          </ul>
-          <%= paginate @ratings, theme: "twitter-bootstrap-3" %>
-        </div>
-      <% end %>
+      <span class="average"><%= t "average_rating" %></span>
+      <br/>
+      <span class="average-review-rating" data-score=<%= @average_review1 %>></span>
+      <br/><br/>
+      <span><%= t "base_on" %><%= @book.review1s.size %><%= t "num_viewpoints" %></span>
     </div>
   </div>
+  <br/><br/>
   <div>
     <table>
       <tr class="element">
@@ -35,8 +30,7 @@
       </tr>
       <tr class="element">
         <td><%= t "cover_price" %></td>
-        <td class="value"><%= number_to_currency(@book.unit_price, unit: "") %>
-          <%= t "vnd" %></td>
+        <td class="value"><%= display_total_price @book.unit_price %></td>
       </tr>
       <tr class="element">
         <td><%= t "category_id" %></td>
@@ -46,11 +40,13 @@
   </div>
   <div>
     <!--show review (have paginate) -->
+  <br/>
   </div>
-  <span><%= link_to t("edit"), edit_admin_book_path(@book), class: "sam-bak" %></span>
-  <span>| <%= link_to t("delete"), admin_book_path(@book), method: :delete,
-    data: {confirm: t("are_you_sure")}, class: "sam-bak" %></span>
-  <span>| <%= link_to t("back"), admin_books_path, class: "sam-bak" %></span>
+  <span><%= link_to t("edit"), edit_admin_book_path(@book), class: "sam-bak", class: "btn btn-primary" %></span>
+  <span> <%= link_to t("delete"), admin_book_path(@book), method: :delete,
+    data: {confirm: t("are_you_sure")}, class: "sam-bak", class: "btn btn-primary" %></span>
+  <br/>
+  <span><%= link_to t("back"), admin_books_path, class: "sam-bak" %></span>
 </div>
 
 <%= javascript_include_tag "reviews" %>

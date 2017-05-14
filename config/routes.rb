@@ -15,14 +15,12 @@ Rails.application.routes.draw do
   end
   resources :categories, only: :index
   resources :books, only: [:index, :show] do
-    resources :ratings
-    resources :comments do
+    resources :review1s do
       resources :answers
     end
   end
 
-  resources :orders
-  resources :history_orders
   resources :carts
-  resources :order_details
+  resources :orders, except: [:edit, :update]
+  resources :order_details, only: [:new, :create, :destroy]
 end

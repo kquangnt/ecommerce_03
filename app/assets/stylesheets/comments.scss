@@ -13,3 +13,17 @@ label.error{
   font-family: "Ubuntu", sans-serif;
   font-weight: normal;
 }
+
+.test {
+  .answer-form {
+    margin: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 3px;
+    display: none;
+  }
+}
+
+#edit-comment-form{
+  display: none;
+}

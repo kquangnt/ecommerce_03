@@ -1,8 +1,9 @@
 <% provide :title, t("all_orders") %>
-<h1><%= t "all_orders" %></h1>
+
 <%= render "shared/flash" %>
 
 <div class="list-categories">
+  <h3><%= t "manage_orders" %></h3>
   <% if @orders.count == 0 %>
     <p><%= t "no_order_currently" %></p>
   <% else %>
@@ -11,7 +12,7 @@
     <table>
       <tr>
         <th><%= t "code_order" %></th>
-        <th><%= t "code_user" %></th>
+        <th><%= t "name_user" %></th>
         <th><%= t "order_admin.cost" %></th>
         <th><%= t "view_cart" %></th>
         <th><%= t "delete" %></th>

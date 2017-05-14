@@ -32,14 +32,14 @@ class Admin::BooksController < ApplicationController
   end
 
   def show
-    @ratings = @book.ratings.order_date_desc.page(params[:page])
-      .per Settings.per_page.rating
-    if @ratings.blank?
-      @average_review = 0
-    else
-      @average_review = @book.ratings.average(:rating).round Settings.average_round
-    end
     @category = Category.find_by_id @book.category_id
+    @review1s = @book.review1s.order_date_desc.page(params[:page])
+      .per Settings.per_page.review1
+    if @review1s.blank?
+      @average_review1 = 0
+    else
+      @average_review1 = @book.review1s.average(:rating1).round Settings.average_round
+    end
     unless @category
       flash[:danger] = t "category_not_exist"
       redirect_to books_path

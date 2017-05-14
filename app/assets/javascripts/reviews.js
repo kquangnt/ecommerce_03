@@ -1,10 +1,10 @@
 $("#rating-form").raty({
-  scoreName: "rating[rating]",
+  scoreName: "review1[rating1]",
   path: "/assets/"
 });
 
 $(".review-rating").raty({
-  scoreName: "rating[rating]",
+  readOnly: true,
   score: function() {
     return $(this).attr("data-score");
   },
@@ -19,17 +19,18 @@ $(".average-review-rating").raty({
   path: "/assets/"
 });
 
-$(".new_comment").validate({
+$(".new_review1").validate({
   errorPlacement: function (error, element) {
     error.insertAfter(element);
   },
   debug: true,
   rules: {
-    "comment[comment]": {required: true}
+    "review1[rating1]": {required: true},
+    "review1[comment1]": {required: true}
   },
   messages: {
-    "comment[comment]": {
-      required: "You must type comment"
+    "review1[comment1]": {
+      required: "Please enter your comment!"
     }
   },
   onfocusout: function(element) {
@@ -45,7 +46,7 @@ $(document).ready(function(){
     $(".revie-form").slideDown("slow");
   });
   $("#close").click(function(){
-      $(".revie-form").slideUp("slow");
+    $(".revie-form").slideUp("slow");
   });
 });
 

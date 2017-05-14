@@ -19,6 +19,7 @@
       <br />
       <em><%= @minimum_password_length %> characters minimum</em>
 <h2><%= t "edit_user" %> <%= resource_name.to_s.humanize %></h2>
+<h2><%= t "edit_user" %></h2>
 
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
@@ -38,7 +39,8 @@
 
       <div class="form-group">
         <%= f.label :email %><br />
-        <%= f.email_field :email, autofocus: true, class: "form-control" %>
+        <%= f.email_field :email, autofocus: true, class: "form-control",
+          disabled: true %>
       </div>
 
       <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>

@@ -6,9 +6,15 @@
 <div class="list-users">
   <%= paginate @users, theme: "twitter-bootstrap-3" %>
 
-  <ul>
+  <table>
+    <tr>
+      <th><% t "id_user" %></th>
+      <th><% t "name_user" %></th>
+      <th></th>
+    </tr>
     <%= render @users %>
   </ul>
 
   <%= paginate @users, theme: "twitter-bootstrap-3" %>
+  </table>
 </div>

@@ -1,0 +1,13 @@
+<tr>
+  <td><span class="book-size-cart">
+    <%= image_tag cart.book.book_img.url(:book_show) %></span></td>
+  <td>
+    <%= link_to cart.book.title, book_path(cart.book), class: "tit" %><br/>
+    <span class="numss"><%= t "author" %><%= cart.book.author %></span><br/>
+    <%= link_to t("delete"), order_detail_path(book_id: cart.book.id),
+      method: :delete, data: {confirm: t("are_you_sure")}, class: "empty-or-de" %>
+  </td>
+  <td><span class="numss"><%= display_total_price cart.book.unit_price %></span></td>
+  <td><span class="nums"><%= cart.number %></span></td>
+  <td><span class="numss"><%= display_total_price cart.total_price %></span></td>
+</tr>

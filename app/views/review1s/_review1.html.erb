@@ -1,0 +1,22 @@
+<li>
+  <div class="test">
+  <span class="user-name"><%= review1.user.name %></span>
+    <br/>
+    <span class="review-rating" data-score=<%= review1.rating1 %>></span>
+    <br/>
+    <p><%= review1.comment1 %></p>
+
+
+    <span class="timestamp"><%= t "posted" %>
+      <%= time_ago_in_words(review1.created_at) %><%= t"ago" %></span>
+
+    <% if user_signed_in? %>
+      <% if can? :destroy, review1 %>
+        <%= link_to t("delete"), book_review1_path(review1.book, review1),
+          method: :delete, data: {confirm: t("are_you_sure")} %>
+      <% end %>
+    <% end %>
+
+    <div id="answer-list-<%= review1.id %>"></div>
+  </div>
+</li>

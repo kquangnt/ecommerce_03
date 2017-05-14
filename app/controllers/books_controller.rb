@@ -20,20 +20,12 @@ class BooksController < ApplicationController
 
   def show
     @order_detail = OrderDetail.new
-    @comments = @book.comments.order_date_desc.page(params[:page]).per Settings.per_page.comment
-    if current_user.blank?
-      @rating = Settings.sezo
+    @review1s = @book.review1s.order_date_desc.page(params[:page])
+      .per Settings.per_page.review1
+    if @review1s.blank?
+      @average_review1 = 0
     else
-      @rating = Rating.find_by book_id: @book.id, user_id: @current_user.id
-      unless @rating
-        @rating = Settings.sezo
-      end
-    end
-    @ratings = @book.ratings.all
-    if @ratings.blank?
-      @average_review = 0
-    else
-      @average_review = @book.ratings.average(:rating).round Settings.average_round
+      @average_review1 = @book.review1s.average(:rating1).round Settings.average_round
     end
     @book.increment :view_count
     @book.save!

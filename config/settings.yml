@@ -1,9 +1,9 @@
 per_page:
   user: 3
-  category: 10
+  category: 7
   book: 6
-  comment: 5
-  order: 10
+  review1: 5
+  order: 7
 book_index: "250x350>"
 book_show: "325x475>"
 size_book: 0..100

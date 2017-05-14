@@ -3,7 +3,7 @@ class CombineItemsInCart < ActiveRecord::Migration[5.0]
     # replace multiple items for a single product in a cart with a single item
     Cart.all.each do |cart|
       # count the number of each product in the cart
-      sums = cart.order_details.group(:book_id).sum(:number)
+      sums = cart.order_details.group(:book_id).sum :number
       sums.each do |book_id, number|
         if number > 1
           # remove individual items

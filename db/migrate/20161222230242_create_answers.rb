@@ -4,7 +4,7 @@ class CreateAnswers < ActiveRecord::Migration[5.0]
       t.string :content
       t.integer :user_id
       t.integer :book_id
-      t.integer :comment_id
+      t.integer :review1_id
 
       t.timestamps
     end

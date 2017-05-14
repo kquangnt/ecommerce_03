@@ -1,0 +1,13 @@
+<%= form_for [@book, @book.review1s.build], remote: true do |f| %>
+  <div id="close"><%= t "close" %></div>
+
+  <%= f.label :rating1 %>
+  <div id="rating-form"></div>
+
+  <%= f.label :comment1 %>
+  <%= f.text_area :comment1, class: "form-control" %>
+
+  <div><%= f.submit t("create_review"), class: "create-comment" %></div>
+<% end %>
+
+<%= javascript_include_tag "reviews" %>

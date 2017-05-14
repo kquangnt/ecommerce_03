@@ -1,13 +1,8 @@
 source "https://rubygems.org"
 
 gem "rails", "~> 5.0.0", ">= 5.0.0.1"
-group :development do
-  gem "sqlite3"
-end
-group :production do
-  gem "pg"
-  gem "rails_12factor"
-end
+gem "sqlite3"
+
 gem "puma", "~> 3.0"
 gem "simple_form", "~> 3.3", ">= 3.3.1"
 gem "bootstrap-sass", "~> 3.3", ">= 3.3.7"
@@ -27,6 +22,7 @@ gem "jquery-rails"
 gem "jquery-validation-rails"
 gem "turbolinks", "~> 5"
 gem "jbuilder", "~> 2.5"
+gem "social-share-button"
 
 group :development, :test do
   gem "byebug", platform: :mri

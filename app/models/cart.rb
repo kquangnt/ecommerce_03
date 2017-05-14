@@ -8,10 +8,10 @@ class Cart < ApplicationRecord
     current_item = order_details.find_by_book_id(book_id)
     if current_item
       #current_item.number += 1
-      current_item.increment(:number, number_input)
+      current_item.increment :number, number_input
     else
       current_item = order_details.build(book_id: book_id)
-      current_item.increment(:number, number_input - 1)
+      current_item.increment :number, number_input - 1
     end
   end
 

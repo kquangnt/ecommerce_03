@@ -1,0 +1,29 @@
+<%= form_for @answer,
+  url: book_review1_answers_path(@book, @review1), remote: true do |f| %>
+  <%= f.text_field :content, id: "answer-content-#{@review1.id}",
+    placeholder: t("write_your_answer_about_this_review1"), class: "form-control" %>
+<% end %>
+
+<% @answers.each do |answer| %>
+  <% if answer.review1_id == @review1.id%>
+    <li>
+      <div class="test">
+        <span class="user-name"><%= answer.user.name %></span>
+        <br/>
+        <div id="edit-answer-form-<%= answer.id %>"><%= answer.content %></div>
+
+        <span class="timestamp"><%= t "posted" %>
+          <%= time_ago_in_words(answer.created_at) %><%= t"ago" %></span>
+
+        <% if user_signed_in? %>
+          <% if can? :destroy, answer %>
+            <%= link_to t("edit"),
+              edit_book_review1_answer_path(@review1.book, @review1, answer), remote: true %>
+            <%= link_to t("delete"), book_review1_answer_path(@review1.book, @review1, answer),
+              method: :delete, data: {confirm: t("are_you_sure")}, remote: true %>
+          <% end %>
+        <% end %>
+      </div>
+    </li>
+  <% end %>
+<% end %>

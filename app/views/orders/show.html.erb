@@ -1,33 +1,37 @@
 <% provide :title, t("your_details_order") %>
-<h1><%= t "your_details_order" %></h1>
 
 <div class="your-cart">
-  <table>
-    <tr>
-      <th></th>
-      <th></th>
-      <th>Unit price</th>
-      <th>Number</th>
-      <th>Total price</th>
-    </tr>
-    <% @cart.order_details.each do |cart| %>
-      <tr>
-        <td><span class="book-size-cart"><%= image_tag cart.book.book_img.url(:book_show) %></span></td>
-        <td>
-          <%= link_to cart.book.title, book_path(cart.book), class: "tit" %><br/>
-          <span class="numss">Author: <%= cart.book.author %></span>
-        </td>
-        <td><span class="numss"><%= number_to_currency(cart.unit_price_current, unit: "") %>
-          <%= t "vnd" %></span></td>
-        <td><span class="nums"><%= cart.number %></span></td>
-        <td><span class="numss"><%= number_to_currency(cart.total_price, unit: "") %>
-          <%= t "vnd" %></span></td>
-      </tr>
-    <% end %>
-  </table>
+  <div class="row">
+    <div class="col-sm-8">
+      <h5><%= t "code_order_2" %><%= @order.id %></h5>
+      <table>
+        <tr>
+          <th></th>
+          <th></th>
+          <th><%= t "unit_price" %></th>
+          <th><%= t "number" %></th>
+          <th><%=t "total_price" %></th>
+        </tr>
+        <% @cart.order_details.each do |cart| %>
+          <tr>
+            <td><span class="book-size-cart"><%= image_tag cart.book.book_img.url(:book_show) %></span></td>
+            <td>
+              <%= link_to cart.book.title, book_path(cart.book), class: "tit" %><br/>
+              <span class="numss"><%= t "author" %><%= cart.book.author %></span>
+            </td>
+            <td><span class="numss"><%= display_total_price cart.unit_price_current %></span></td>
+            <td><span class="nums"><%= cart.number %></span></td>
+            <td><span class="numss"><%= display_total_price cart.total_price %></span></td>
+          </tr>
+        <% end %>
+      </table>
 
-  <h4><%= t "total" %><%= @order.cost %><%= t "vnd" %></h4>
-  <br/>
+      <h4><%= t "total" %><%= display_cost %></h4>
+      <br/>
 
-  <span class="baka"><%= link_to t("back"), orders_path %></span>
+      <span class="baka"><%= link_to t("back"), orders_path %></span>
+    </div>
+    <div class="col-sm-4">
+    </div>
+  </div>
 </div>

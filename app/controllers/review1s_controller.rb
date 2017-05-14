@@ -1,25 +1,26 @@
-class CommentsController < ApplicationController
-  skip_before_filter :verify_authenticity_token
+class Review1sController < ApplicationController
+  skip_before_action :verify_authenticity_token
   before_action :authenticate_user!
   before_action :list_categories
   before_action :load_book
   load_and_authorize_resource
 
   def create
-    @comment = Comment.new comment_params
-    @comment.save
+    @review1 = Review1.new review1_params
+    @review1.book_id = @book.id
+    @review1.user_id = current_user.id
+    @review1.save
     redirect_to book_path @book
   end
 
   def destroy
-    @comment.destroy
+    @review1.destroy
     redirect_to book_path @book
   end
 
   private
-  def comment_params
-    params.require(:comment).permit(:comment)
-      .merge! book_id: @book.id, user_id: current_user.id
+  def review1_params
+    params.require(:review1).permit :rating1, :comment1
   end
 
   def load_book
