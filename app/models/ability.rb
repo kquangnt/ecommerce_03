@@ -13,10 +13,7 @@ class Ability
       can :destroy, Review1 do |review1|
         review1.user == user
       end
-      can :create, Answer
-      can :destroy, Answer do |answer|
-        answer.user == user
-      end
+
       can :create, Order
       can :destroy, Order do |order|
         order.user == user

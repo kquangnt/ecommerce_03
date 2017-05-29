@@ -7,8 +7,6 @@ Rails.application.routes.draw do
     resources :carts, only: [:show, :destroy]
   end
   root "static_pages#home"
-  devise_for :users
-  resources :users, only: [:index, :show]
   devise_for :users, controllers: {omniauth_callbacks: "omniauth_callbacks"}
   resources :users, only: [:index, :show, :destroy] do
     resources :orders

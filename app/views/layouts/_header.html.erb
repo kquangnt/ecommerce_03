@@ -5,9 +5,6 @@
       <ul class="nav navbar-nav navbar-right">
         <% if user_signed_in? %>
           <li class="hi"><%= t "hi" %><%= current_user.name %></li>
-          <li><%= link_to t("books"), "#" %></li>
-          <li><%= link_to t("orders"), "#" %></li>
-          <li><%= link_to t("users"), users_path %></li>
           <% if current_user.is_admin? %>
             <li><%= link_to t("users"), users_path %></li>
           <% end %>
@@ -36,8 +33,6 @@
             <% end %>
             <ul class="dropdown-menu">
               <% if current_user.is_admin? %>
-                <li><%= link_to t("manage"), "#" %></li>
-              <% end %>
                 <li><%= link_to t("manage"), admin_root_path %></li>
                 <li class="divider"></li>
               <% end %>
