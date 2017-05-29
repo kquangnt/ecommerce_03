@@ -1,7 +1,13 @@
 source "https://rubygems.org"
 
 gem "rails", "~> 5.0.0", ">= 5.0.0.1"
-gem "sqlite3"
+group :development do
+  gem "sqlite3"
+end
+group :production do
+  gem "pg"
+  gem "rails_12factor"
+end
 
 gem "puma", "~> 3.0"
 gem "simple_form", "~> 3.3", ">= 3.3.1"
